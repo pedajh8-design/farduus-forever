@@ -26,12 +26,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "so_SO",
     siteName: "Farduus Forever ❤️",
+    images: [
+      {
+        url: "/images/og-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "For Farduus Xuseen ❤️ — A Letter From My Heart",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "For Farduus Xuseen ❤️",
     description:
       "Farriin qaas ah oo qalbigayga ka timid oo ku socota Farduus Xuseen. Hal Qalbi, Hal Jacayl, Hal Mustaqbal. ❤️",
+    images: ["/images/og-preview.png"],
   },
   icons: {
     icon: "/icon.svg",
