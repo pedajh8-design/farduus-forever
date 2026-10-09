@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Heart, Clock, Calendar, Sparkles } from "lucide-react";
+import { Heart, Clock, Calendar } from "lucide-react";
 import { LOVE_CONTENT } from "@/lib/love-content";
 
 interface TimeElapsed {
@@ -47,16 +47,16 @@ export default function LoveCounter() {
   }, [customDate]);
 
   return (
-    <section className="py-16 px-4 sm:px-6 max-w-4xl mx-auto text-center relative">
+    <section className="py-12 sm:py-16 px-3 sm:px-6 max-w-4xl mx-auto text-center relative w-full">
       <div className="absolute inset-0 bg-gradient-radial from-rose-romantic/10 via-transparent to-transparent pointer-events-none" />
 
       {/* Header Pill */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-romantic/10 border border-rose-romantic/25 text-rose-blush text-xs sm:text-sm font-medium mb-4 backdrop-blur-md">
+      <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-romantic/10 border border-rose-romantic/25 text-rose-blush text-xs sm:text-sm font-medium mb-3 sm:mb-4 backdrop-blur-md">
         <Clock className="w-3.5 h-3.5 text-gold-warm" />
         <span>Waqtiga Jacaylkeenna</span>
       </div>
 
-      <h2 className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white mb-4">
+      <h2 className="text-2xl sm:text-4xl font-serif-luxury font-bold text-white mb-4">
         Our Love Journey
       </h2>
 
@@ -66,15 +66,15 @@ export default function LoveCounter() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="glass-panel rounded-3xl p-6 sm:p-10 border border-rose-blush/20 shadow-2xl relative overflow-hidden"
+        className="glass-panel rounded-3xl p-5 sm:p-10 border border-rose-blush/20 shadow-2xl relative overflow-hidden"
       >
         {/* Glow accent */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-rose-romantic to-transparent" />
 
         {/* If date is configured, show ticking timer */}
         {timeElapsed ? (
-          <div className="space-y-6">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="space-y-5 sm:space-y-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-2xl mx-auto">
               {[
                 { label: "Maalmood", value: timeElapsed.days },
                 { label: "Saacadood", value: timeElapsed.hours },
@@ -83,44 +83,43 @@ export default function LoveCounter() {
               ].map((unit, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl bg-midnight-light/80 border border-rose-blush/15 shadow-inner flex flex-col items-center"
+                  className="p-3 sm:p-4 rounded-2xl bg-midnight-light/80 border border-rose-blush/15 shadow-inner flex flex-col items-center"
                 >
-                  <span className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white text-glow-rose">
+                  <span className="text-2xl sm:text-4xl font-serif-luxury font-bold text-white text-glow-rose">
                     {unit.value}
                   </span>
-                  <span className="text-xs uppercase tracking-wider text-rose-blush/70 mt-1">
+                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-rose-blush/70 mt-1">
                     {unit.label}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-rose-blush text-sm sm:text-base font-medium">
+            <p className="text-rose-blush text-xs sm:text-base font-medium">
               Ilbiriqsi kasta oo aan ku jeclahay waa mid qaali ii ah. ❤️
             </p>
           </div>
         ) : (
-          /* MANDATED REQUIREMENT: When relationshipStartDate is not configured, show this exact message */
-          <div className="py-4 px-2">
-            <div className="w-14 h-14 rounded-full bg-rose-romantic/15 border border-rose-romantic/30 mx-auto flex items-center justify-center mb-5 text-rose-romantic shadow-[0_0_20px_rgba(255,107,154,0.3)] animate-pulse">
-              <Heart className="w-7 h-7 fill-rose-romantic" />
+          <div className="py-3 px-1 sm:px-2">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-rose-romantic/15 border border-rose-romantic/30 mx-auto flex items-center justify-center mb-4 sm:mb-5 text-rose-romantic shadow-[0_0_20px_rgba(255,107,154,0.3)] animate-pulse">
+              <Heart className="w-6 h-6 sm:w-7 sm:h-7 fill-rose-romantic" />
             </div>
 
-            <p className="text-xl sm:text-2xl font-serif-luxury text-white font-medium max-w-xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-2xl font-serif-luxury text-white font-medium max-w-xl mx-auto leading-relaxed">
               {LOVE_CONTENT.fallbackRelationshipText}
             </p>
 
-            <p className="mt-4 text-xs sm:text-sm text-rose-blush/70 max-w-md mx-auto leading-relaxed">
+            <p className="mt-3 text-xs sm:text-sm text-rose-blush/70 max-w-md mx-auto leading-relaxed">
               Muddada jacaylku maaha tiro maalmood oo kaliya, balse waa dareen qoto dheer oo qalbi kasta ku nool maalin kasta.
             </p>
           </div>
         )}
 
         {/* Optional Interactive Date Setter */}
-        <div className="mt-8 pt-6 border-t border-rose-blush/10 flex flex-col items-center">
+        <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-rose-blush/10 flex flex-col items-center">
           {!showDatePicker ? (
             <button
               onClick={() => setShowDatePicker(true)}
-              className="inline-flex items-center gap-2 text-xs sm:text-sm text-gold-warm/90 hover:text-gold-warm hover:underline transition-all"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gold-warm/90 hover:text-gold-warm hover:underline transition-all touch-manipulation"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>
@@ -133,17 +132,17 @@ export default function LoveCounter() {
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-xs"
+              className="flex flex-col sm:flex-row items-center gap-2.5 w-full max-w-xs"
             >
               <input
                 type="date"
                 defaultValue={customDate || "2024-01-01"}
                 onChange={(e) => setCustomDate(e.target.value)}
-                className="w-full px-4 py-2 rounded-xl bg-midnight-light border border-rose-blush/30 text-white text-sm focus:outline-none focus:border-rose-romantic"
+                className="w-full px-3.5 py-2 rounded-xl bg-midnight-light border border-rose-blush/30 text-white text-xs sm:text-sm focus:outline-none focus:border-rose-romantic"
               />
               <button
                 onClick={() => setShowDatePicker(false)}
-                className="px-4 py-2 rounded-xl bg-rose-romantic text-white text-xs font-semibold whitespace-nowrap hover:bg-rose-deep transition-colors"
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-rose-romantic text-white text-xs font-semibold whitespace-nowrap hover:bg-rose-deep transition-colors touch-manipulation"
               >
                 Xaqiiji ✨
               </button>

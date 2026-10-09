@@ -16,6 +16,10 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -23,8 +27,14 @@ body {
   color: #FFFFFF;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100dvh;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Custom romantic typography classes */
@@ -38,28 +48,28 @@ body {
 
 /* Glassmorphism styles */
 .glass-panel {
-  background: rgba(15, 20, 56, 0.65);
+  background: rgba(15, 20, 56, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 213, 226, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 213, 226, 0.16);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .glass-panel-subtle {
-  background: rgba(18, 23, 60, 0.45);
+  background: rgba(18, 23, 60, 0.52);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-hover:hover {
   border-color: rgba(255, 107, 154, 0.45);
   box-shadow: 0 12px 40px -10px rgba(255, 107, 154, 0.25);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Luxury Glow utilities */
@@ -97,9 +107,18 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Mobile Safe-Area Utilities */
+.pt-safe {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
 /* Custom Romantic Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {

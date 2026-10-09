@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Share2, Copy, Check, Heart } from "lucide-react";
+import { Share2, Check } from "lucide-react";
 import { LOVE_CONTENT } from "@/lib/love-content";
 
 export default function ShareButton() {
@@ -9,7 +9,6 @@ export default function ShareButton() {
 
   const getShareUrl = () => {
     if (typeof window !== "undefined") {
-      // If deployed or in browser, use current public origin
       if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
         return window.location.href;
       }
@@ -30,7 +29,7 @@ export default function ShareButton() {
         await navigator.share(shareData);
         return;
       } catch {
-        // User canceled or failed, fallback to copy below
+        // Fallback to clipboard
       }
     }
 
@@ -39,7 +38,6 @@ export default function ShareButton() {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch {
-      // Fallback prompt if clipboard fails
       prompt("Xidhiidhka:", shareUrl);
     }
   };
@@ -48,18 +46,21 @@ export default function ShareButton() {
     <div className="relative inline-block">
       <button
         onClick={handleShare}
-        className="group relative px-6 py-3 rounded-full glass-panel hover:border-rose-romantic/60 text-white font-medium text-sm flex items-center gap-2.5 shadow-lg shadow-black/30 hover:scale-105 active:scale-95 transition-all duration-300 border border-rose-blush/25"
+        className="group relative px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full glass-panel hover:border-rose-romantic/60 text-white font-medium text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-black/30 active:scale-95 transition-all duration-300 border border-rose-blush/25 touch-manipulation"
         aria-label="Share This Love"
       >
         {copied ? (
           <>
-            <Check className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-400 font-semibold">Xidhiidhka waa la koobiyeeyay! 💖</span>
+            <Check className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-emerald-400 font-semibold text-[11px] sm:text-xs">La koobiyeeyay! 💖</span>
           </>
         ) : (
           <>
-            <Share2 className="w-4 h-4 text-rose-romantic group-hover:rotate-12 transition-transform" />
-            <span className="text-rose-blush group-hover:text-white">Share This Love 💌</span>
+            <Share2 className="w-3.5 h-3.5 text-rose-romantic group-hover:rotate-12 transition-transform" />
+            <span className="text-rose-blush group-hover:text-white">
+              <span className="inline sm:hidden">Share 💌</span>
+              <span className="hidden sm:inline">Share This Love 💌</span>
+            </span>
           </>
         )}
       </button>

@@ -13,7 +13,7 @@ import FinalRomanticScene from "@/components/FinalRomanticScene";
 import MusicPlayer from "@/components/MusicPlayer";
 import ShareButton from "@/components/ShareButton";
 import FloatingPetalsAndHearts from "@/components/FloatingPetalsAndHearts";
-import { Heart, Sparkles } from "lucide-react";
+import { Heart } from "lucide-react";
 import { LOVE_CONTENT } from "@/lib/love-content";
 
 export default function Home() {
@@ -24,10 +24,9 @@ export default function Home() {
   const handleOpenFromEnvelope = () => {
     setShowEnvelope(false);
     setStartMusic(true);
-    // Smooth scroll down to letter after envelope dissolves
     setTimeout(() => {
       letterRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 600);
+    }, 550);
   };
 
   const handleScrollToLetter = () => {
@@ -38,11 +37,11 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       letterRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 800);
+    }, 700);
   };
 
   return (
-    <main className="relative min-h-screen bg-midnight text-white selection:bg-rose-romantic selection:text-white">
+    <main className="relative min-h-[100dvh] w-full max-w-[100vw] overflow-x-hidden bg-midnight text-white selection:bg-rose-romantic selection:text-white">
       {/* Background Floating Petals & Twinkling Night Stars */}
       <FloatingPetalsAndHearts />
 
@@ -52,12 +51,12 @@ export default function Home() {
       )}
 
       {/* Top Floating Romantic Navigation Bar */}
-      <header className="fixed top-0 inset-x-0 z-30 px-4 sm:px-8 py-4 pointer-events-none">
+      <header className="fixed top-0 inset-x-0 z-30 px-3 sm:px-8 py-2.5 sm:py-4 pointer-events-none">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo / Brand */}
-          <div className="pointer-events-auto flex items-center gap-2 px-4 py-2 rounded-full glass-panel-subtle border border-rose-blush/20 backdrop-blur-md shadow-lg shadow-black/20">
-            <Heart className="w-4 h-4 fill-rose-romantic text-rose-romantic animate-pulse" />
-            <span className="font-serif-luxury font-bold text-sm tracking-wide text-white">
+          <div className="pointer-events-auto flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass-panel-subtle border border-rose-blush/20 backdrop-blur-md shadow-lg shadow-black/20">
+            <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-rose-romantic text-rose-romantic animate-pulse" />
+            <span className="font-serif-luxury font-bold text-xs sm:text-sm tracking-wide text-white">
               {LOVE_CONTENT.meta.siteName}
             </span>
           </div>

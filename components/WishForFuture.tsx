@@ -2,46 +2,46 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, Sparkles, Moon } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 import { LOVE_CONTENT } from "@/lib/love-content";
 
 export default function WishForFuture() {
   return (
-    <section className="py-20 px-4 sm:px-6 max-w-5xl mx-auto relative">
+    <section className="py-14 sm:py-20 px-3 sm:px-6 max-w-5xl mx-auto relative w-full">
       {/* Container Card */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.7 }}
         className="relative rounded-3xl overflow-hidden glass-panel border border-rose-blush/25 shadow-2xl bg-gradient-to-b from-[#1b1031] via-[#2f1437] to-[#0c0d23]"
       >
         {/* Sky with Sunset Horizon & Stars Background */}
-        <div className="relative pt-12 pb-6 px-6 sm:px-12 text-center z-10 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-warm/15 border border-gold-warm/30 text-gold-warm text-xs sm:text-sm font-medium mb-6 backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-gold-warm" />
-            <span>Mustaqbalka Aynu Wada Rajo Weyn Nahay</span>
+        <div className="relative pt-8 sm:pt-12 pb-4 sm:pb-6 px-4 sm:px-12 text-center z-10 flex flex-col items-center">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-warm/15 border border-gold-warm/30 text-gold-warm text-xs sm:text-sm font-medium mb-4 sm:mb-6 backdrop-blur-md">
+            <Sparkles className="w-3 h-3 text-gold-warm" />
+            <span>Mustaqbalka Aynu Wada Rajo Weyl Nahay</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-serif-luxury font-bold text-white mb-6 text-glow-rose">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif-luxury font-bold text-white mb-4 sm:mb-6 text-glow-rose leading-tight">
             {LOVE_CONTENT.futureWish.heading}
           </h2>
 
-          <div className="max-w-2xl mx-auto p-6 sm:p-8 rounded-2xl glass-panel-subtle border border-rose-blush/20 mb-8 backdrop-blur-lg">
-            <p className="text-lg sm:text-2xl font-serif-luxury text-rose-blush/95 leading-relaxed sm:leading-loose">
+          <div className="max-w-2xl mx-auto p-4 sm:p-8 rounded-2xl glass-panel-subtle border border-rose-blush/20 mb-6 sm:mb-8 backdrop-blur-lg">
+            <p className="text-base sm:text-2xl font-serif-luxury text-rose-blush/95 leading-relaxed sm:leading-loose">
               &ldquo;{LOVE_CONTENT.futureWish.message}&rdquo;
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-gold-warm/90 font-medium">
-            <Heart className="w-4 h-4 fill-rose-romantic text-rose-romantic" />
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gold-warm/90 font-medium">
+            <Heart className="w-3.5 h-3.5 fill-rose-romantic text-rose-romantic" />
             <span>Aamiin yaa Rabbi • Hal Qalbi, Hal Mustaqbal</span>
-            <Heart className="w-4 h-4 fill-rose-romantic text-rose-romantic" />
+            <Heart className="w-3.5 h-3.5 fill-rose-romantic text-rose-romantic" />
           </div>
         </div>
 
         {/* Panoramic Sunset with Silhouette Landscape */}
-        <div className="relative w-full h-56 sm:h-72 overflow-hidden mt-2">
+        <div className="relative w-full h-44 sm:h-72 overflow-hidden mt-2">
           {/* Glowing Sunset Horizon */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#080B20] via-transparent to-transparent z-10 pointer-events-none" />
 
@@ -85,18 +85,14 @@ export default function WishForFuture() {
 
             {/* Couple Silhouette Standing Together Holding Hands */}
             <g transform="translate(565, 205) scale(0.85)" fill="#080B20">
-              {/* Partner 1 (Left) */}
               <circle cx="25" cy="18" r="9" />
               <path d="M16,28 C16,25 22,23 30,23 C38,23 44,25 44,29 L43,90 L20,90 Z" />
 
-              {/* Partner 2 (Right, leaning on partner 1) */}
               <circle cx="50" cy="21" r="8.5" />
               <path d="M42,30 C42,27 47,25 55,25 C63,25 67,28 67,32 L65,90 L44,90 Z" />
 
-              {/* Clasping hands in center */}
               <path d="M38,50 Q43,54 48,50" stroke="#080B20" strokeWidth="5" />
 
-              {/* Little Floating Heart above their heads */}
               <path
                 d="M37,0 C35,-5 28,-7 25,-1 C22,-7 15,-5 13,0 C11,7 25,16 25,16 C25,16 39,7 37,0 Z"
                 fill="#FF6B9A"

@@ -6,6 +6,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
@@ -55,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="so" className="scroll-smooth">
-      <body className="bg-midnight text-white antialiased selection:bg-rose-romantic selection:text-white overflow-x-hidden min-h-screen">
+      <body className="bg-midnight text-white antialiased selection:bg-rose-romantic selection:text-white overflow-x-hidden min-h-[100dvh] w-full max-w-[100vw]">
         {children}
       </body>
     </html>
